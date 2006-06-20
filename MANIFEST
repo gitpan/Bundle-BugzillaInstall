@@ -1,0 +1,7 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Bundle-BugzillaInstall.t
+lib/Bundle/BugzillaInstall.pm
+META.yml                                 Module meta-data (added by MakeMaker)
