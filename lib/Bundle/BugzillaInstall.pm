@@ -5,7 +5,7 @@ use warnings;
 use CPAN;
 	
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my $httpd_dir;
 my $bz_dir = "mozilla/webtools/bugzilla";
@@ -123,7 +123,10 @@ print "\nUpdate localconfig file";
 
 
 #Starting bugzilla
+print "\nFirst time run checksetup.pl";
 system ("$bz_dir/checksetup.pl");
+
+print "\nSecond time run checksetup.pl";
 system ("$bz_dir/checksetup.pl");
 
 
@@ -132,42 +135,28 @@ __END__
 # Below is stub documentation for your module. You'd better edit it!
 
 =head1 NAME
-
-Bundle::BugzillaInstall - Perl extension for blah blah blah
+Bundle::BugzillaInstall  - Automatic Bugzilla install system.
 
 =head1 SYNOPSIS
 
-  use Bundle::BugzillaInstall;
-  blah blah blah
+  perl -MCPAN -e 'install Bundle::BugzillaInstall'
 
 =head1 DESCRIPTION
 
-Stub documentation for Bundle::BugzillaInstall, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
+This module install on your Linux machine (developed on Fedora 5) latest stable version of Bugzilla.
+System requirements:
+	1. Perl with CPAN module installed
+	2. MySQL server
+	3. SendMail (Optional)
+	4. Apache web server
 
-Blah blah blah.
-
-=head2 EXPORT
-
-None by default.
-
-
-
-=head1 SEE ALSO
-
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
-
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
+Module get latest cvs copy of Bugzilla and install it to your Apache "Root directory" + mozilla/webtools/bugzilla.
+Module will try to install all CPAN modules for Bugzilla
+Install process will prompt you to set MySQL user bugs.
 
 =head1 AUTHOR
 
-Oleg Sher, E<lt>oleg.sher@gmail.comE<gt>
+Oleg Sher, E<lt>sher.oleg@gmail.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
